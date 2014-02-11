@@ -1,0 +1,8 @@
+<ivy-module version="2.0">
+    <info organisation="badassgame" module="resources"/>
+    <dependencies>
+
+        <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0"/>
+
+    </dependencies>
+</ivy-module>

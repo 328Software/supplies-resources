@@ -5,9 +5,6 @@
     <description>
         Resource build file, for dependency management scripts
     </description>
-
-
-
     <!--
 
         this build file is a self contained project:
@@ -51,6 +48,11 @@
 
     <target name="clean-cache" depends="install-ivy" description="--> clean the ivy cache">
         <ivy:cleancache/>
+    </target>
+
+    <target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
+        <ivy:retrieve pattern="repository/[organization]/[artifact]-[type].[ext]"
+                ivypattern="repository/[organization]/[artifact].[ext]"/>
     </target>
 
 </project>
