@@ -63,8 +63,8 @@
 
     <target name="update-repository" depends="install-ivy,clean-repository" description="--> retrieve dependencies with ivy">
         <mkdir dir="${repository}"/>
-        <ivy:retrieve pattern="${repository}/[organization]/[artifact]-[type].[ext]"
-                      ivypattern="${repository}/[organization]/[artifact].[ext]"
+        <ivy:retrieve pattern="${repository}/[module]/[artifact]-[type]-[revision].[ext]"
+                      ivypattern="${repository}/[module]/[revision]/[artifact].[ext]"
                       conf="*"/>
     </target>
 
