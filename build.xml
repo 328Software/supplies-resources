@@ -50,9 +50,16 @@
         <ivy:cleancache/>
     </target>
 
-    <target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
+    <target name="update-repository" depends="install-ivy" description="--> retrieve dependencies with ivy">
         <ivy:retrieve pattern="repository/[organization]/[artifact]-[type].[ext]"
-                ivypattern="repository/[organization]/[artifact].[ext]"/>
+                ivypattern="repository/[organization]/[artifact].[ext]"
+                conf="*"/>
+    </target>
+
+    <target name="clean-repository" description="--> clean the local repository">
+        <delete includeemptydirs="true">
+            <fileset dir="repository" includes="**/*"/>
+        </delete>
     </target>
 
 </project>

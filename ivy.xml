@@ -1,8 +1,18 @@
 <ivy-module version="2.0">
     <info organisation="badassgame" module="resources"/>
+
+
+    <configurations defaultconf="core->default">
+        <conf name="core" visibility="private"/>
+        <conf name="goodengine" extends="core"/>
+    </configurations>
+
+    <publications defaultconf="core">
+
+    </publications>
+
+
     <dependencies>
-
         <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0"/>
-
     </dependencies>
 </ivy-module>
