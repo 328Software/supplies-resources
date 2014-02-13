@@ -3,7 +3,7 @@
 
 
     <configurations defaultconf="core->default">
-        <conf name="core" visibility="private"/>
+        <conf name="core"/>
         <conf name="goodengine" extends="core"/>
     </configurations>
 
@@ -13,6 +13,9 @@
 
 
     <dependencies>
-        <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0"/>
+
+        <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0">
+            <conf name="core"/>
+        </dependency>
     </dependencies>
 </ivy-module>
