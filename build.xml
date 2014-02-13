@@ -1,7 +1,7 @@
 <!--
 
 -->
-<project  xmlns:ivy="antlib:org.apache.ivy.ant" name="resources" basedir=".">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="resources" basedir=".">
     <description>
         Resource build file, for dependency management scripts
     </description>
