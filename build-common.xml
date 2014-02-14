@@ -27,11 +27,13 @@
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
 
     <property name="target"             value="${basedir}/target"/>
+    <property name="build"              value="${target}/build"/>
     <property name="lib"                value="${target}/lib"/>
+    <property name="pub"                value="${target}/pub"/>
     <property name="src.main"           value="${basedir}/src/main"/>
     <property name="src.main.java"      value="${src.main}/java"/>
 
-    <property name="repository"         value="${basedir}/repository"/>
+    <property name="repository"         value="${common.basedir}/repository"/>
     <property name="ivy.dep.file"       value="${common.basedir}/ivy.xml" />
 
     <!--
@@ -91,11 +93,12 @@
     <macrodef name="compile">
         <attribute name="lib" default="${lib}"/>
         <attribute name="src" default="${src.main.java}"/>
-        <attribute name="target" default="${target}"/>
+        <attribute name="target" default="${build}"/>
         <sequential>
             <antcall target="retrieve-lib"/>
             <echo message="compiling..."/>
             <echo message="using library at @{lib}"/>
+            <mkdir dir="@{target}"/>
             <javac srcdir="@{src}" destdir="@{target}" verbose="true">
                 <classpath>
                     <fileset dir="@{lib}">
@@ -106,24 +109,38 @@
         </sequential>
     </macrodef>
 
+    <macrodef name="build-jar">
+        <attribute name="lib" default="${lib}"/>
+        <attribute name="target" default="${build}"/>
+        <attribute name="destfile" default="${ant.project.name}.jar"/>
+        <attribute name="destdir" default="${pub}"/>
+        <sequential>
+            <jar destfile="@{destdir}/@{destfile}" basedir="@{target}"/>
+        </sequential>
+    </macrodef>
+
     <target name="retrieve-lib" if="compile.conf">
         <retrieve-dependencies conf="${compile.conf}"/>
     </target>
 
     <target name="clean-lib">
         <delete includeemptydirs="true" failonerror="false">
-            <fileset dir="${lib}" includes="**/*"/>
+            <fileset dir="${lib}" erroronmissingdir="false"/>
         </delete>
     </target>
 
     <target name="clean-build" depends="clean-lib">
         <delete includeemptydirs="true" failonerror="false">
-            <fileset dir="${target}"/>
+            <fileset dir="${target}" erroronmissingdir="false"/>
         </delete>
     </target>
 
     <target name="compile" depends="clean-build,retrieve-lib">
         <compile/>
+    </target>
+
+    <target name="build-jar" depends="compile">
+        <build-jar/>
     </target>
 
 </project>
