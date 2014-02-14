@@ -5,6 +5,7 @@
     <configurations defaultconf="core->default">
         <conf name="core"/>
         <conf name="goodengine" extends="core"/>
+        <conf name="data-compile" extends="core"/>
     </configurations>
 
     <publications defaultconf="core">
@@ -13,9 +14,8 @@
 
 
     <dependencies>
-
         <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0">
-            <conf name="core"/>
+            <conf name="goodengine"/>
         </dependency>
     </dependencies>
 </ivy-module>

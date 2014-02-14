@@ -60,10 +60,9 @@
                       We will not fail as long as local lib dir exists (it may be empty) and
                       ivy is in at least one of ant's lib dir or the local lib dir.
         -->
-        <echo message="${ivy.install.version}"/>
-        <path id="ivy.lib.path">
-            <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
-        </path>
+        <install-ivy/>
+
+        <!--only adding the below line so intellij can understand where ivy is located-->
         <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
     </target>
 
@@ -71,11 +70,27 @@
         <echo message="${common.basedir}"/>
     </target>
 
-    <target name="retrieve-dependencies" depends="install-ivy">
-        <ivy:retrieve pattern="${lib}/[artifact]-[type].[ext]"
-                      conf="*"
-                />
-    </target>
+    <macrodef name="install-ivy">
+        <sequential>
+            <echo message="${ivy.install.version}"/>
+            <path id="ivy.lib.path">
+                <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+            </path>
+            <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="retrieve-dependencies">
+        <attribute name="conf" default="core"/>
+        <attribute name="lib" default="${lib}"/>
+        <attribute name="pattern" default="@{lib}/[artifact]-[type].[ext]"/>
+        <sequential>
+            <install-ivy/>
+            <ivy:retrieve pattern="@{pattern}"
+                          conf="@{conf}"
+                    />
+        </sequential>
+    </macrodef>
 
 
 </project>
