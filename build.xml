@@ -9,16 +9,30 @@
 
     -->
 
-    <import file="build-common.xml"/>
+    <import file="${basedir}/build-common.xml"/>
+
 
     <target name="clean-ivy" description="--> clean the ivy installation">
-        <delete dir="/ivy"/>
+        <delete dir="${ivy.jar.dir}"/>
     </target>
 
     <target name="clean-cache" depends="install-ivy" description="--> clean the ivy cache">
         <ivy:cleancache/>
     </target>
 
+
+    <target name="clean-repository" description="--> clean the local repository">
+        <delete includeemptydirs="true" failonerror="false">
+            <fileset dir="${repository}" includes="**/*"/>
+        </delete>
+    </target>
+
+    <target name="update-repository" depends="install-ivy,clean-repository" description="--> retrieve dependencies with ivy">
+        <mkdir dir="${repository}"/>
+        <ivy:retrieve pattern="${repository}/${local.ivy.pattern}"
+                      ivypattern="${repository}/${local.artifact.pattern}"
+                      conf="*"/>
+    </target>
 
 
 </project>

@@ -1,7 +1,7 @@
 <!--
 
 -->
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="common" basedir=".">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="common" basedir="." >
     <description>
         Common build scripts
     </description>
@@ -12,30 +12,42 @@
     -->
 
 
-    <!--
-    -->
-    <property file="local.properties"/>
+    <dirname property="common.basedir" file="${ant.file.common}"/>
 
     <!--
     -->
-    <property name="data.basedir" value="${data.root}/${data.version}"/>
+    <property file="${common.basedir}/repository.ivy.properties"/>
+    <property file="${common.basedir}/local.properties"/>
+
+    <!--
+    -->
+    <!--<property file="${basedir}/repository.ivy.properties"/>-->
+    <!--<property file="${basedir}/local.properties"/>-->
+
+    <!--
+    -->
+    <property name="data.basedir"       value="${data.root}/${data.version}"/>
     <property name="badassgame.basedir" value="${badassgame.root}/${badassgame.version}"/>
-    <property name="badengine.basedir" value="${badengine.root}/${badengine.version}"/>
+    <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
 
+    <property name="target" value="${basedir}/target"/>
+    <property name="lib" value="${target}/lib"/>
+
     <property name="repository" value="${basedir}/repository"/>
+    <property name="ivy.dep.file" value="${common.basedir}/ivy.xml" />
+
 
     <!--
     -->
-    <property name="ivy.jar.dir" value="/ivy"/>
-    <property name="ivy.jar.file" value="/ivy/ivy.jar"/>
+    <property name="ivy.jar.dir" value="${common.basedir}/ivy"/>
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
 
     <target name="download-ivy" unless="skip.download">
-        <mkdir dir="/ivy"/>
+        <mkdir dir="${ivy.jar.dir}"/>
         <echo message="installing ivy..."/>
         <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true"/>
     </target>
-
 
     <!--
               target: install-ivy
@@ -48,24 +60,22 @@
                       We will not fail as long as local lib dir exists (it may be empty) and
                       ivy is in at least one of ant's lib dir or the local lib dir.
         -->
+        <echo message="${ivy.install.version}"/>
         <path id="ivy.lib.path">
-            <fileset dir="/ivy" includes="*.jar"/>
+            <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
         </path>
         <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
     </target>
 
-
-    <target name="clean-repository" description="--> clean the local repository">
-        <delete includeemptydirs="true" failonerror="false">
-            <fileset dir="${repository}" includes="**/*"/>
-        </delete>
+    <target name="test-dir">
+        <echo message="${common.basedir}"/>
     </target>
 
-    <target name="update-repository" depends="install-ivy,clean-repository" description="--> retrieve dependencies with ivy">
-        <mkdir dir="${repository}"/>
-        <ivy:retrieve pattern="${repository}/[module]/[artifact]-[type]-[revision].[ext]"
-                      ivypattern="${repository}/[module]/[revision]/[artifact].[ext]"
-                      conf="*"/>
+    <target name="retrieve-dependencies" depends="install-ivy">
+        <ivy:retrieve pattern="${lib}/[artifact]-[type].[ext]"
+                      conf="*"
+                />
     </target>
+
 
 </project>
