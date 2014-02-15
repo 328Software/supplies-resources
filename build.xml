@@ -12,11 +12,11 @@
     <import file="${basedir}/build-common.xml"/>
 
 
-    <target name="clean-ivy" description="--> clean the ivy installation">
+    <target name="clean-ivy-install" description="--> clean the ivy installation">
         <delete dir="${ivy.jar.dir}"/>
     </target>
 
-    <target name="clean-cache" depends="install-ivy" description="--> clean the ivy cache">
+    <target name="clean-ivy-cache" depends="install-ivy" description="--> clean the ivy cache">
         <ivy:cleancache/>
     </target>
 
