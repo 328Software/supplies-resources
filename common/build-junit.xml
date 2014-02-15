@@ -1,0 +1,52 @@
+<!--
+
+-->
+<project xmlns:ivy="antlib:org.apache.ivy.ant"
+
+         name="junit" basedir=".." >
+    <description>
+        Common build scripts
+    </description>
+    <!--
+
+        this build file is a self contained project:
+        it requires ant 2.3 and java 1.7
+    -->
+
+    <dirname property="common.basedir" file="${ant.file.common}"/>
+
+    <include file="${common.basedir}/local-properties.xml"/>
+    <include file="${common.scripts}/macro.xml"/>
+
+    <property name="test" value="${target}/test"/>
+    <property name="test" value="${target}/test"/>
+
+    <target name="compile-test" depends="update-repository">
+        <retrieve-dependencies conf="test"/>
+        <retrieve-dependencies conf="junit" pattern="${lib}/[artifact].[ext]"/>
+        <compile/>
+        <compile target="${test}" src="${src.test.java}">
+            <cp>
+                <dirset dir="${build}"/>
+            </cp>
+        </compile>
+    </target>
+
+    <target name="run-tests" depends="compile-test">
+        <mkdir dir="${report}"/>
+        <junit>
+            <classpath>
+                <dirset dir="${build}"/>
+                <dirset dir="${test}"/>
+                <fileset dir="${lib}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <batchtest todir="${report}">
+                <formatter type="plain" usefile="false"/>
+                <fileset dir="${test}"/>
+            </batchtest>
+        </junit>
+    </target>
+
+</project>

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="net.java.jinput" module="jinput-platform" revision="2.0.5" status="release" publication="20110323141927">
-		<license name="BSD" url="http://www.opensource.org/licenses/bsd-license.php"/>
+	<info organisation="net.java.jinput"
+		module="jinput-platform"
+		revision="2.0.5"
+		status="release"
+		publication="20110323141927"
+	>
+		<license name="BSD" url="http://www.opensource.org/licenses/bsd-license.php" />
 		<description homepage="http://java.net/projects/jinput">
 		Library for access to input devices.
 		</description>

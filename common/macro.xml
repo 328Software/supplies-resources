@@ -1,0 +1,67 @@
+<!--
+
+-->
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="macro" basedir=".." >
+    <description>
+        Common build macros
+    </description>
+
+    <dirname property="common.basedir" file="${ant.file.common}"/>
+
+    <include file="${common.basedir}/local-properties.xml"/>
+
+    <macrodef name="install-ivy">
+        <sequential>
+            <echo message="${ivy.install.version}"/>
+            <path id="ivy.lib.path">
+                <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+            </path>
+            <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="retrieve-dependencies">
+        <attribute name="conf" default="core"/>
+        <attribute name="lib" default="${lib}"/>
+        <attribute name="pattern" default="@{lib}/[organization]-[module]-[artifact]-[type].[ext]"/>
+        <sequential>
+            <ivy:retrieve pattern="@{pattern}"
+                          conf="@{conf}"
+                    />
+        </sequential>
+    </macrodef>
+
+    <macrodef name="compile">
+        <attribute name="lib" default="${lib}"/>
+        <attribute name="src" default="${src.main.java}"/>
+        <attribute name="target" default="${build}"/>
+        <element name="cp" optional="true"/>
+        <sequential>
+            <antcall target="retrieve-lib"/>
+            <echo message="compiling..."/>
+            <echo message="using library at @{lib}"/>
+            <mkdir dir="@{target}"/>
+            <javac srcdir="@{src}" destdir="@{target}" verbose="true">
+                <classpath>
+                    <fileset dir="@{lib}">
+                        <include name="**/*.jar"/>
+                    </fileset>
+                    <cp/>
+                </classpath>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="build-jar">
+        <attribute name="lib" default="${lib}"/>
+        <attribute name="target" default="${build}"/>
+        <attribute name="destfile" default="${ant.project.name}.jar"/>
+        <attribute name="destdir" default="${pub}"/>
+        <sequential>
+            <jar destfile="@{destdir}/@{destfile}" basedir="@{target}"/>
+        </sequential>
+    </macrodef>
+
+
+
+</project>

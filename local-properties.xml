@@ -1,0 +1,50 @@
+<!--
+
+-->
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="local.properties" basedir="." >
+    <description>
+        Common build scripts
+    </description>
+    <!--
+
+        this build file is a self contained project:
+        it requires ant 2.3 and java 1.7
+    -->
+    <dirname property="common.basedir" file="${ant.file.local.properties}"/>
+    <!--
+    -->
+    <property file="${common.basedir}/repository.ivy.properties"/>
+    <property file="${common.basedir}/local.properties"/>
+
+
+    <!--
+    -->
+    <property name="data.basedir"       value="${data.root}/${data.version}"/>
+    <property name="badassgame.basedir" value="${badassgame.root}/${badassgame.version}"/>
+    <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
+    <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
+
+    <property name="target"             value="${basedir}/target"/>
+    <property name="build"              value="${target}/build"/>
+    <property name="lib"                value="${target}/lib"/>
+    <property name="pub"                value="${target}/pub"/>
+    <property name="report"             value="${target}/report"/>
+    <property name="src.main"           value="${basedir}/src/main"/>
+    <property name="src.test"           value="${basedir}/src/test"/>
+    <property name="src.main.java"      value="${src.main}/java"/>
+    <property name="src.test.java"      value="${src.test}/java"/>
+
+    <property name="repository"         value="${common.basedir}/repository"/>
+    <property name="common.scripts"     value="${common.basedir}/common"/>
+    <property name="ivy.dep.file"       value="${basedir}/ivy.xml" />
+
+
+    <!--set the local repository to be the resources respository directory-->
+    <property name="ivy.local.default.root" value="${repository}"/>
+    <property name="ivy.local.default.artifact.pattern" value="${local.artifact.pattern}"/>
+    <property name="ivy.local.default.ivy.pattern" value="${local.ivy.pattern}"/>
+
+    <property name="ivy.jar.dir"        value="${common.basedir}/ivy"/>
+    <property name="ivy.jar.file"       value="${ivy.jar.dir}/ivy.jar"/>
+
+</project>
