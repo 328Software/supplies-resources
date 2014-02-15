@@ -21,18 +21,4 @@
     </target>
 
 
-    <target name="clean-repository" description="--> clean the local repository">
-        <delete includeemptydirs="true" failonerror="false">
-            <fileset dir="${repository}" includes="**/*"/>
-        </delete>
-    </target>
-
-    <target name="update-repository" depends="install-ivy,clean-repository" description="--> retrieve dependencies with ivy">
-        <mkdir dir="${repository}"/>
-        <ivy:retrieve pattern="${repository}/${local.artifact.pattern}"
-                      ivypattern="${repository}/${local.ivy.pattern}"
-                      conf="*"/>
-    </target>
-
-
 </project>
