@@ -2,7 +2,6 @@
 
 -->
 <project xmlns:ivy="antlib:org.apache.ivy.ant"
-
          name="junit" basedir=".." >
     <description>
         Common build scripts

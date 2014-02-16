@@ -19,12 +19,14 @@
 
     <!--
     -->
+    <property name="module.basedir"     value="${basedir}"/>
+
     <property name="data.basedir"       value="${data.root}/${data.version}"/>
     <property name="badassgame.basedir" value="${badassgame.root}/${badassgame.version}"/>
     <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
 
-    <property name="target"             value="${basedir}/target"/>
+    <property name="target"             value="${module.basedir}/target"/>
     <property name="build"              value="${target}/build"/>
     <property name="lib"                value="${target}/lib"/>
     <property name="pub"                value="${target}/pub"/>
@@ -33,14 +35,14 @@
     <property name="native.jars"        value="${target}/natives/jars"/>
     <property name="native.files"       value="${target}/natives/file"/>
 
-    <property name="src.main"           value="${basedir}/src/main"/>
-    <property name="src.test"           value="${basedir}/src/test"/>
+    <property name="src.main"           value="${module.basedir}/src/main"/>
+    <property name="src.test"           value="${module.basedir}/src/test"/>
     <property name="src.main.java"      value="${src.main}/java"/>
     <property name="src.test.java"      value="${src.test}/java"/>
 
     <property name="repository"         value="${common.basedir}/repository"/>
     <property name="common.scripts"     value="${common.basedir}/common"/>
-    <property name="ivy.dep.file"       value="${basedir}/ivy.xml" />
+    <property name="ivy.dep.file"       value="${module.basedir}/ivy.xml" />
 
 
     <condition property="isWindows">

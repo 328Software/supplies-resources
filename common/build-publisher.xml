@@ -1,0 +1,28 @@
+<!--
+
+-->
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="publisher" basedir=".." >
+    <description>
+        Publisher build scripts
+    </description>
+    <!--
+
+        this build file is a self contained project:
+        it requires ant 2.3 and java 1.7
+    -->
+    <dirname property="common.basedir" file="${ant.file.publisher}/.."/>
+
+    <import file="${common.basedir}/build-common.xml"/>
+    <include file="${common.basedir}/local-properties.xml"/>
+    <include file="${common.scripts}/macro.xml"/>
+
+    <target name="publish-all">
+        <ant antfile="${data.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
+        <ant antfile="${badengine.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
+        <ant antfile="${goodengine.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
+        <ant antfile="${sandbox.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
+    </target>
+
+
+
+</project>
