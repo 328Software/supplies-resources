@@ -45,10 +45,18 @@
 
     <condition property="isWindows">
         <and>
-            <os family="windows" />
+            <os family="windows"/>
             <isset property="${windows.native.conf}"/>
         </and>
     </condition>
+    <condition property="testWindows">
+            <os family="windows" />
+
+
+    </condition>
+    <echo message="testWindows3=${testWindows}"/>
+    <echo message="isWindows common=${isWindows}"/>
+    <echo message="isWindows common=${windows.native.conf}"/>
 
     <condition property="isLinux">
         <and>
