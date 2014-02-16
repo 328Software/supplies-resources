@@ -23,7 +23,6 @@
 
     <target name="compile-test" depends="update-repository">
         <retrieve-dependencies conf="test"/>
-        <retrieve-dependencies conf="junit" pattern="${lib}/[artifact].[ext]"/>
         <compile/>
         <compile target="${test}" src="${src.test.java}">
             <cp>
@@ -37,7 +36,7 @@
     </target>
 
     <target name="run-tests" depends="compile-test">
-        <junit fork="yes" printsummary="yes" haltonerror="true">
+        <junit fork="yes" printsummary="yes" haltonerror="true" haltonfailure="true">
             <sysproperty key="java.library.path"
                     value="${native.files}" />
             <classpath>
