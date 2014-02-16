@@ -31,14 +31,14 @@
                 <dirset dir="${build}"/>
             </cp>
         </compile>
-    </target>
-
-    <target name="run-tests" depends="compile-test">
         <mkdir dir="${report}"/>
         <mkdir dir="${native.files}"/>
         <mkdir dir="${native.jars}"/>
         <antcall target="retrieve-os-natives"/>
-        <junit fork="yes" printsummary="yes">
+    </target>
+
+    <target name="run-tests" depends="compile-test">
+        <junit fork="yes" printsummary="yes" haltonerror="true">
             <sysproperty key="java.library.path"
                     value="${native.files}" />
             <classpath>
@@ -50,7 +50,9 @@
             </classpath>
             <batchtest todir="${report}">
                 <formatter type="plain" usefile="false"/>
-                <fileset dir="${test}"/>
+                <fileset dir="${src.test.java}">
+                    <include name="**/*.java"/>
+                </fileset>
             </batchtest>
         </junit>
     </target>

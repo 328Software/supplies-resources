@@ -44,15 +44,24 @@
 
 
     <condition property="isWindows">
-        <os family="windows" />
+        <and>
+            <os family="windows" />
+            <isset property="${windows.native.conf}"/>
+        </and>
     </condition>
 
     <condition property="isLinux">
-        <os family="unix" />
+        <and>
+            <os family="unix" />
+            <isset property="${linux.native.conf}"/>
+        </and>
     </condition>
 
     <condition property="isMac">
-        <os family="mac" />
+        <and>
+            <os family="mac" />
+            <isset property="${mac.native.conf}"/>
+        </and>
     </condition>
 
     <!--set the local repository to be the resources respository directory-->

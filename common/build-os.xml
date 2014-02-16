@@ -36,8 +36,8 @@
     </target>
 
     <target name="unpack-natives">
-        <unzip dest="${native.files}">
-            <fileset dir="${native.jars}">
+        <unzip dest="${native.files}" failonemptyarchive="false">
+            <fileset dir="${native.jars}" erroronmissingdir="false">
                 <include name="**/*.jar"/>
             </fileset>
             <mapper type="flatten"/>
