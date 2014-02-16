@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="net.java.jutils"
-		module="jutils"
-		revision="1.0.0"
-		status="release"
-		publication="20110322105502"
-	>
-		<license name="BSD" url="http://www.opensource.org/licenses/bsd-license.php" />
+	<info organisation="net.java.jutils" module="jutils" revision="1.0.0" status="release" publication="20110322105502">
+		<license name="BSD" url="http://www.opensource.org/licenses/bsd-license.php"/>
 		<description homepage="http://java.net/projects/jutils">
 		Common utilities for the Game Technology Group
 		</description>

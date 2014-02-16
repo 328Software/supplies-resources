@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="org.lwjgl.lwjgl"
-		module="lwjgl-platform"
-		revision="2.9.0"
-		status="release"
-		publication="20130422211652"
-	>
+	<info organisation="org.lwjgl.lwjgl" module="lwjgl-platform" revision="2.9.0" status="release" publication="20130422211652">
 		<description homepage="http://lwjgl.org/">
 		Lighweight Java Game Library - Platform
 		</description>

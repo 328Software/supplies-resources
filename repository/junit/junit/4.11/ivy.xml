@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="junit"
-		module="junit"
-		revision="4.11"
-		status="release"
-		publication="20121114142147"
-	>
-		<license name="Common Public License Version 1.0" url="http://www.opensource.org/licenses/cpl1.0.txt" />
+	<info organisation="junit" module="junit" revision="4.11" status="release" publication="20121114142147">
+		<license name="Common Public License Version 1.0" url="http://www.opensource.org/licenses/cpl1.0.txt"/>
 		<description homepage="http://junit.org">
 		JUnit is a regression testing framework written by Erich Gamma and Kent Beck.
         It is used by the developer who implements unit tests in Java.

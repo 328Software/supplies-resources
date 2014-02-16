@@ -11,7 +11,6 @@
         it requires ant 2.3 and java 1.7
     -->
     <dirname property="common.basedir" file="${ant.file.local.properties}"/>
-    <property name="module.basedir"     value="${basedir}"/>
     <!--
     -->
     <property file="${common.basedir}/repository.ivy.properties"/>
@@ -24,6 +23,11 @@
     <property name="badassgame.basedir" value="${badassgame.root}/${badassgame.version}"/>
     <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
+
+    <property name="data.build.basedir"       value="${data.root}/${data.build}"/>
+    <property name="badassgame.build.basedir" value="${badassgame.root}/${badassgame.build}"/>
+    <property name="badengine.build.basedir"  value="${badengine.root}/${badengine.build}"/>
+    <property name="goodengine.build.basedir" value="${goodengine.root}/${goodengine.build}"/>
 
     <property name="target"             value="${module.basedir}/target"/>
     <property name="build"              value="${target}/build"/>
