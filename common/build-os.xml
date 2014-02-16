@@ -16,7 +16,7 @@
     <include file="${common.scripts}/macro.xml"/>
 
     <target name="retrieve-os-natives">
-        <not><equals arg1="${linux.native.conf}" arg2=""/></not>
+        <echo message="retrieving natives"/>
 
         <antcall target="retrieve-linux-natives"/>
         <antcall target="retrieve-windows-natives"/>
