@@ -35,6 +35,7 @@
     <target name="run-tests" depends="compile-test">
         <mkdir dir="${report}"/>
         <junit>
+            <!--<jvmarg value="-Djava.library.path=${"-->
             <classpath>
                 <dirset dir="${build}"/>
                 <dirset dir="${test}"/>
