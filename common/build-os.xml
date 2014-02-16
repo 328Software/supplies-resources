@@ -16,16 +16,8 @@
     <include file="${common.scripts}/macro.xml"/>
 
     <target name="retrieve-os-natives">
-        <echo message="retrieving natives"/>
+        <not><equals arg1="${linux.native.conf}" arg2=""/></not>
 
-
-        <condition property="testWindows">
-            <os family="windows" />
-        </condition>
-        <echo message="testWindows=${testWindows}"/>
-
-        <echo message="${isWindows}"/>
-        <echo message="${windows.native.conf}"/>
         <antcall target="retrieve-linux-natives"/>
         <antcall target="retrieve-windows-natives"/>
         <antcall target="retrieve-mac-natives"/>
