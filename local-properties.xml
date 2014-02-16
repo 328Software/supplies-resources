@@ -48,23 +48,13 @@
     <condition property="isWindows">
         <and>
             <os family="windows"/>
-            <isset property="${windows.native.conf}"/>
             <not><equals arg1="${windows.native.conf}" arg2=""/></not>
         </and>
     </condition>
-    <condition property="testWindows">
-            <os family="windows" />
-
-
-    </condition>
-    <echo message="testWindows3=${testWindows}"/>
-    <echo message="isWindows common=${isWindows}"/>
-    <echo message="isWindows common=${windows.native.conf}"/>
 
     <condition property="isLinux">
         <and>
             <os family="unix" />
-            <isset property="${linux.native.conf}"/>
             <not><equals arg1="${linux.native.conf}" arg2=""/></not>
         </and>
     </condition>
@@ -72,7 +62,6 @@
     <condition property="isMac">
         <and>
             <os family="mac" />
-            <isset property="${mac.native.conf}"/>
             <not><equals arg1="${mac.native.conf}" arg2=""/></not>
         </and>
     </condition>

@@ -26,16 +26,32 @@
 
     <target name="retrieve-linux-natives" if="isLinux">
         <echo message="retrieving linux dependencies..."/>
-        <retrieve-dependencies conf="${linux.native.conf}" lib="${native.jars}"/>
+        <antcall target="retrieve-linux-native-conf"/>
     </target>
+    <target name="retrieve-linux-native-conf" if="linux.native.conf">
+        <echo message="retrieving linux dependencies from conf!!!"/>
+        <retrieve-dependencies conf="${linux.native.conf}" lib="${native.jars}"/>
+    </target>  
+    
     <target name="retrieve-windows-natives" if="isWindows">
         <echo message="retrieving windows dependencies..."/>
+        <antcall target="retrieve-windows-native-conf"/>
+    </target>
+    <target name="retrieve-windows-native-conf" if="windows.native.conf">
+        <echo message="retrieving windows dependencies from conf!!!"/>
         <retrieve-dependencies conf="${windows.native.conf}" lib="${native.jars}"/>
     </target>
+
+
     <target name="retrieve-mac-natives" if="isMac">
         <echo message="retrieving mac dependencies..."/>
+        <antcall target="retrieve-mac-native-conf"/>
+    </target>
+    <target name="retrieve-mac-native-conf" if="mac.native.conf">
+        <echo message="retrieving mac dependencies from conf!!!"/>
         <retrieve-dependencies conf="${mac.native.conf}" lib="${native.jars}"/>
     </target>
+
 
     <target name="unpack-natives">
         <unzip dest="${native.files}" failonemptyarchive="false">
