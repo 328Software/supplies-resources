@@ -29,6 +29,10 @@
     <property name="lib"                value="${target}/lib"/>
     <property name="pub"                value="${target}/pub"/>
     <property name="report"             value="${target}/report"/>
+    <property name="natives"            value="${target}/natives"/>
+    <property name="native.jars"        value="${target}/natives/jars"/>
+    <property name="native.files"       value="${target}/natives/file"/>
+
     <property name="src.main"           value="${basedir}/src/main"/>
     <property name="src.test"           value="${basedir}/src/test"/>
     <property name="src.main.java"      value="${src.main}/java"/>
@@ -38,6 +42,18 @@
     <property name="common.scripts"     value="${common.basedir}/common"/>
     <property name="ivy.dep.file"       value="${basedir}/ivy.xml" />
 
+
+    <condition property="isWindows">
+        <os family="windows" />
+    </condition>
+
+    <condition property="isLinux">
+        <os family="unix" />
+    </condition>
+
+    <condition property="isMac">
+        <os family="mac" />
+    </condition>
 
     <!--set the local repository to be the resources respository directory-->
     <property name="ivy.local.default.root" value="${repository}"/>

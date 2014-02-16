@@ -25,6 +25,9 @@
         <attribute name="lib" default="${lib}"/>
         <attribute name="pattern" default="@{lib}/[organization]-[module]-[artifact]-[type].[ext]"/>
         <sequential>
+            <echo message="retriving to @{lib}"/>
+            <echo message="pattern is @{pattern}"/>
+
             <ivy:retrieve pattern="@{pattern}"
                           conf="@{conf}"
                     />

@@ -17,6 +17,7 @@
 
     <include file="${common.basedir}/local-properties.xml"/>
     <include file="${common.scripts}/macro.xml"/>
+    <import file="${common.scripts}/build-os.xml"/>
 
     <property name="test" value="${target}/test"/>
     <property name="test" value="${target}/test"/>
@@ -34,8 +35,12 @@
 
     <target name="run-tests" depends="compile-test">
         <mkdir dir="${report}"/>
-        <junit>
-            <!--<jvmarg value="-Djava.library.path=${"-->
+        <mkdir dir="${native.files}"/>
+        <mkdir dir="${native.jars}"/>
+        <antcall target="retrieve-os-natives"/>
+        <junit fork="yes" printsummary="yes">
+            <sysproperty key="java.library.path"
+                    value="${native.files}" />
             <classpath>
                 <dirset dir="${build}"/>
                 <dirset dir="${test}"/>

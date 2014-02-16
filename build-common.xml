@@ -18,6 +18,7 @@
     <import file="${common.basedir}/local-properties.xml"/>
     <import file="${common.scripts}/macro.xml"/>
     <import file="${common.scripts}/build-junit.xml"/>
+    <import file="${common.scripts}/build-os.xml"/>
 
     <target name="download-ivy" unless="skip.download">
         <mkdir dir="${ivy.jar.dir}"/>
