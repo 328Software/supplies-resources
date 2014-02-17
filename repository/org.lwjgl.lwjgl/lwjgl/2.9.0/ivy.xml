@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="org.lwjgl.lwjgl" module="lwjgl" revision="2.9.0" status="release" publication="20130422211631">
+	<info organisation="org.lwjgl.lwjgl"
+		module="lwjgl"
+		revision="2.9.0"
+		status="release"
+		publication="20130422211631"
+	>
 		<description homepage="http://lwjgl.org/">
 		Lighweight Java Game Library
 		</description>
@@ -24,13 +29,13 @@
 	</publications>
 	<dependencies>
 		<dependency org="org.lwjgl.lwjgl" name="lwjgl-platform" rev="2.9.0" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)">
-			
+			<artifact name="lwjgl-platform" type="jar" ext="jar" conf="" m:classifier="natives-windows"/>
 		</dependency>
 		<dependency org="org.lwjgl.lwjgl" name="lwjgl-platform" rev="2.9.0" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)">
-			
+			<artifact name="lwjgl-platform" type="jar" ext="jar" conf="" m:classifier="natives-linux"/>
 		</dependency>
 		<dependency org="org.lwjgl.lwjgl" name="lwjgl-platform" rev="2.9.0" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)">
-			
+			<artifact name="lwjgl-platform" type="jar" ext="jar" conf="" m:classifier="natives-osx"/>
 		</dependency>
 		<dependency org="net.java.jinput" name="jinput" rev="2.0.5" force="true" conf="compile->compile(*),master(*);runtime->runtime(*)"/>
 	</dependencies>

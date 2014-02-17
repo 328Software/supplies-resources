@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="net.java.jinput"
-		module="jinput-platform"
-		revision="2.0.5"
+	<info organisation="cglib"
+		module="cglib-nodep"
+		revision="2.2.2"
 		status="release"
-		publication="20110323141927"
+		publication="20110510095501"
 	>
-		<license name="BSD" url="http://www.opensource.org/licenses/bsd-license.php" />
-		<description homepage="http://java.net/projects/jinput">
-		Library for access to input devices.
+		<license name="ASF 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt" />
+		<description homepage="http://cglib.sourceforge.net/">
+		Code generation library with shaded ASM dependecies
 		</description>
 	</info>
 	<configurations>
@@ -24,5 +24,11 @@
 		<conf name="optional" visibility="public" description="contains all optional dependencies"/>
 	</configurations>
 	<publications>
+		<artifact name="cglib-nodep" type="jar" ext="jar" conf="master"/>
+		<artifact name="cglib-nodep" type="source" ext="jar" conf="sources" m:classifier="sources"/>
+		<artifact name="cglib-nodep" type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc"/>
 	</publications>
+	<dependencies>
+		<dependency org="ant" name="ant" rev="1.6.2" force="true" conf="optional->compile(*),master(*)"/>
+	</dependencies>
 </ivy-module>
