@@ -36,7 +36,8 @@
     </target>
 
     <target name="run-tests" depends="compile-test">
-        <junit fork="yes" printsummary="yes" haltonerror="true" haltonfailure="true">
+        <junit fork="yes" printsummary="yes" haltonerror="true" haltonfailure="true"
+               maxmemory="2048m">
             <sysproperty key="java.library.path"
                     value="${native.files}" />
             <classpath>
