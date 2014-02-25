@@ -36,10 +36,11 @@
     </target>
 
     <target name="run-tests" depends="compile-test">
-        <junit fork="yes" printsummary="yes" haltonerror="true" haltonfailure="true"
+        <junit fork="yes" forkmode="once" printsummary="yes" haltonerror="true" haltonfailure="true"
                maxmemory="2048m">
             <sysproperty key="java.library.path"
                     value="${native.files}" />
+            <jvmarg value="-Xdebug" />
             <classpath>
                 <dirset dir="${build}"/>
                 <dirset dir="${test}"/>
