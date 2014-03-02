@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.badassgame" module="data" revision="0.1" status="integration" publication="20140302132613"/>
+    <info organisation="org.badassgame" module="data" revision="0.1" status="integration" publication="20140302134003"/>
 
 
     <configurations defaultconf="default">
@@ -13,7 +13,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="data" url="file://E:/dataVersions/trunk/target/pub"/>
+        <artifact name="data" url="file://C:/Users/Alex/IdeaProjects/game/Data/trunk/target/pub"/>
     </publications>
 
 
