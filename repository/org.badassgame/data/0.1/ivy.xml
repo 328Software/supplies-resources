@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.badassgame" module="data" revision="0.1" status="integration" publication="20140302135547"/>
+    <info organisation="org.badassgame" module="data" revision="0.1" status="integration" publication="20140302140249"/>
 
 
     <configurations defaultconf="default">
