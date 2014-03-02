@@ -73,7 +73,15 @@
         </delete>
     </target>
 
-    <target name="compile" depends="clean-build,retrieve-lib" description="--> compile the module">
+    <target name="copy-resources" description="--> copy resources to build directory">
+        <copy todir="${build}">
+            <fileset dir="${src.main.resources}">
+                <patternset includes="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="clean-build,retrieve-lib,copy-resources" description="--> compile the module">
         <compile/>
     </target>
 

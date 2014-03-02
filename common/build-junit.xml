@@ -21,8 +21,18 @@
     <property name="test" value="${target}/test"/>
     <property name="test" value="${target}/test"/>
 
+    <target name="copy-test-resources" description="--> copy test resources to build directory">
+        <copy todir="${build}">
+            <fileset dir="${src.test.resources}">
+                <patternset includes="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
     <target name="compile-test" depends="update-repository">
         <retrieve-dependencies conf="test"/>
+        <antcall target="copy-resources"/>
+        <antcall target="copy-test-resources"/>
         <compile/>
         <compile target="${test}" src="${src.test.java}">
             <cp>

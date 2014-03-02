@@ -41,7 +41,9 @@
     <property name="src.main"           value="${module.basedir}/src/main"/>
     <property name="src.test"           value="${module.basedir}/src/test"/>
     <property name="src.main.java"      value="${src.main}/java"/>
+    <property name="src.main.resources" value="${src.main}/resources"/>
     <property name="src.test.java"      value="${src.test}/java"/>
+    <property name="src.test.resources" value="${src.test}/resources"/>
 
     <property name="repository"         value="${common.basedir}/repository"/>
     <property name="common.scripts"     value="${common.basedir}/common"/>
