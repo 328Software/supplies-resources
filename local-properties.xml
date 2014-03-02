@@ -47,6 +47,9 @@
     <property name="common.scripts"     value="${common.basedir}/common"/>
     <property name="ivy.dep.file"       value="${module.basedir}/ivy.xml" />
 
+    <property file="${module.basedir}/revision.properties"/>
+
+    <property name="revision" value="0.1"/>
 
     <condition property="isWindows">
         <and>

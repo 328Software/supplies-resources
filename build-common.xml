@@ -82,7 +82,7 @@
     </target>
 
     <target name="publish" depends="build-jar" description="--> publish the archive to the local repository">
-        <ivy:publish resolver="local" pubrevision="0.1" overwrite="true">
+        <ivy:publish resolver="local" pubrevision="${revision}" overwrite="true">
             <artifacts pattern="${pub}/[artifact].[ext]"/>
         </ivy:publish>
     </target>
