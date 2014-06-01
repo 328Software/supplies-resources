@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140523023652"/>
+    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140601151548"/>
 
 
     <configurations defaultconf="default">
@@ -13,7 +13,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="data" url="file://E:/dataVersions/version_0_1a/target/pub"/>
+        <artifact name="data" url="file://E:/dataVersions/version_0_2/target/pub"/>
     </publications>
 
 

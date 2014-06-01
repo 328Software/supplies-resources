@@ -20,12 +20,12 @@
     -->
 
     <property name="data.basedir"       value="${data.root}/${data.version}"/>
-    <property name="supply.simulator.basedir" value="${supply.simulator.root}/${supply.simulator.version}"/>
+    <property name="simulator.basedir" value="${simulator.root}/${simulator.version}"/>
     <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
 
     <property name="data.build.basedir"       value="${data.root}/${data.build}"/>
-    <property name="supply.simulator.build.basedir" value="${supply.simulator.root}/${supply.simulator.build}"/>
+    <property name="simulator.build.basedir" value="${simulator.root}/${simulator.build}"/>
     <property name="badengine.build.basedir"  value="${badengine.root}/${badengine.build}"/>
     <property name="goodengine.build.basedir" value="${goodengine.root}/${goodengine.build}"/>
 

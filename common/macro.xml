@@ -46,7 +46,7 @@
             <mkdir dir="@{target}"/>
             <javac srcdir="@{src}" destdir="@{target}" verbose="true">
                 <classpath>
-                    <fileset dir="@{lib}">
+                    <fileset dir="@{lib}" erroronmissingdir="false">
                         <include name="**/*.jar"/>
                     </fileset>
                     <cp/>
