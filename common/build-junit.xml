@@ -67,4 +67,28 @@
         </junit>
     </target>
 
+    <target name="run-tests-debug" depends="compile-test">
+        <junit fork="yes" forkmode="once" printsummary="yes" haltonerror="true" haltonfailure="true"
+               maxmemory="2048m"
+               newenvironment="true">
+            <sysproperty key="java.library.path"
+                         value="${native.files}" />
+            <jvmarg value="-Xdebug" />
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" />
+            <classpath>
+                <dirset dir="${build}"/>
+                <dirset dir="${test}"/>
+                <fileset dir="${lib}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <batchtest todir="${report}">
+                <formatter type="plain" usefile="false"/>
+                <fileset dir="${src.test.java}">
+                    <include name="**/*Test*.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
 </project>
