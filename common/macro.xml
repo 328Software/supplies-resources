@@ -41,10 +41,10 @@
         <element name="cp" optional="true"/>
         <sequential>
             <antcall target="retrieve-lib"/>
-            <echo message="compiling..."/>
+            <echo message="compiling...."/>
             <echo message="using library at @{lib}"/>
             <mkdir dir="@{target}"/>
-            <javac srcdir="@{src}" destdir="@{target}" verbose="true">
+            <javac srcdir="@{src}" destdir="@{target}" verbose="true" debug="on">
                 <classpath>
                     <fileset dir="@{lib}" erroronmissingdir="false">
                         <include name="**/*.jar"/>
@@ -54,6 +54,8 @@
             </javac>
         </sequential>
     </macrodef>
+
+
 
     <macrodef name="build-jar">
         <attribute name="lib" default="${lib}"/>
