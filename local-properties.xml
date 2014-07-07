@@ -33,6 +33,7 @@
     <property name="build"              value="${target}/build"/>
     <property name="lib"                value="${target}/lib"/>
     <property name="pub"                value="${target}/pub"/>
+    <property name="api"                value="${pub}/api"/>
     <property name="report"             value="${target}/report"/>
     <property name="natives"            value="${target}/natives"/>
     <property name="native.jars"        value="${target}/natives/jars"/>

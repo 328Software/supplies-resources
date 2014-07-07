@@ -19,6 +19,7 @@
     <import file="${common.scripts}/macro.xml"/>
     <import file="${common.scripts}/build-junit.xml"/>
     <import file="${common.scripts}/build-os.xml"/>
+    <import file="${common.scripts}/build-javadoc.xml"/>
 
     <target name="download-ivy" unless="skip.download">
         <mkdir dir="${ivy.jar.dir}"/>

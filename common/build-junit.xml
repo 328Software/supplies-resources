@@ -19,7 +19,6 @@
     <import file="${common.scripts}/build-os.xml"/>
 
     <property name="test" value="${target}/test"/>
-    <property name="test" value="${target}/test"/>
 
     <target name="copy-test-resources" description="--> copy test resources to build directory">
         <copy todir="${build}">

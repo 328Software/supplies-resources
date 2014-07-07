@@ -1,0 +1,42 @@
+<!--
+
+-->
+<project xmlns:ivy="antlib:org.apache.ivy.ant"
+         name="javadoc" basedir=".." >
+    <description>
+        Common build scripts
+    </description>
+    <!--
+
+        this build file:
+        it requires ant 2.3 and java 1.7
+    -->
+
+    <dirname property="common.basedir" file="${ant.file.common}"/>
+
+    <include file="${common.basedir}/local-properties.xml"/>
+    <include file="${common.scripts}/macro.xml"/>
+
+
+    <target name="generate-javadoc" depends="compile" description="--> generate javadoc for module">
+        <delete includeemptydirs="true" failonerror="false">
+            <fileset dir="${api}" erroronmissingdir="false"/>
+        </delete>
+        <javadoc packagenames="org.supply.simulator.*"
+                 sourcepath="${src.main.java}"
+                 defaultexcludes="yes"
+                 destdir="${api}"
+                 author="true"
+                 version="true"
+                 use="true"
+                 windowtitle="${ant.project.name} API">
+            <doctitle><![CDATA[<h1>Supply Simulator</h1>]]></doctitle>
+            <bottom><![CDATA[<i>Copyright &#169; 2014 328 Games. All Rights Reserved.</i>]]></bottom>
+            <tag name="todo" scope="all" description="To do:"/>
+            <!--<group title="Group 1 Packages" packages="com.dummy.test.a*"/>-->
+            <!--<group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*"/>-->
+            <!--<link offline="true" href="http://docs.oracle.com/javase/7/docs/api/" packagelistLoc="C:\tmp"/>-->
+            <!--<link href="http://docs.oracle.com/javase/7/docs/api/"/>-->
+        </javadoc>
+    </target>
+</project>
