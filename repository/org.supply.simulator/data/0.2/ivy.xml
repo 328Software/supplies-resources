@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140628164125"/>
+    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140710232714"/>
 
 
     <configurations defaultconf="default">
