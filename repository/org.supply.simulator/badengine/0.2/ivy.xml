@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="badengine" revision="0.2" status="integration" publication="20140601151549"/>
+    <info organisation="org.supply.simulator" module="badengine" revision="0.2" status="integration" publication="20140714224333"/>
 
 
     <configurations defaultconf="default">
@@ -13,7 +13,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="badengine" url="file://E:/badengineVersions/trunk/target/pub"/>
+        <artifact name="badengine" url="file://E:/workspace/badengineVersions/trunk/target/pub"/>
     </publications>
 
 

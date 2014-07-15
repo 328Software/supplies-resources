@@ -20,8 +20,8 @@
         <ant antfile="${data.build.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
         <ant antfile="${badengine.build.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
         <ant antfile="${goodengine.build.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
-        <ant antfile="${sandbox.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
         <ant antfile="${simulator.build.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
+        <ant antfile="${sandbox.basedir}/build.xml" target="publish" inheritall="false" inheritrefs="false"/>
     </target>
 
 
