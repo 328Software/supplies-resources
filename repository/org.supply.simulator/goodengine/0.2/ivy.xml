@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="goodengine" revision="0.2" status="integration" publication="20140714224335"/>
+    <info organisation="org.supply.simulator" module="goodengine" revision="0.2" status="integration" publication="20140720143738"/>
 
 
     <configurations defaultconf="default">
@@ -13,7 +13,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="goodengine" url="file://E:/workspace/goodengineVersions/trunk/target/pub"/>
+        <artifact name="goodengine" url="file://E:/goodengineVersions/trunk/target/pub"/>
     </publications>
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140714224331"/>
+    <info organisation="org.supply.simulator" module="data" revision="0.2" status="integration" publication="20140720151708"/>
 
 
     <configurations defaultconf="default">
@@ -13,7 +13,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="data" url="file://E:/workspace/dataVersions/version_0_2/target/pub"/>
+        <artifact name="data" url="file://E:/dataVersions/version_0_2/target/pub"/>
     </publications>
 
 
@@ -24,6 +24,12 @@
         </dependency>
 
         <dependency org="junit" name="junit" rev="4.11">
+            <conf name="test" mapped="default"/>
+        </dependency>
+
+        <dependency org="org.apache.logging.log4j" name="log4j-api" rev="2.0-rc1">
+            <conf name="default" mapped="default"/>
+            <conf name="runtime" mapped="runtime"/>
             <conf name="test" mapped="default"/>
         </dependency>
     </dependencies>
