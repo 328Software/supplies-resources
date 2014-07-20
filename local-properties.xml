@@ -23,11 +23,13 @@
     <property name="simulator.basedir" value="${simulator.root}/${simulator.version}"/>
     <property name="badengine.basedir"  value="${badengine.root}/${badengine.version}"/>
     <property name="goodengine.basedir" value="${goodengine.root}/${goodengine.version}"/>
+    <property name="display.basedir" value="${display.root}/${display.version}"/>
 
     <property name="data.build.basedir"       value="${data.root}/${data.build}"/>
     <property name="simulator.build.basedir" value="${simulator.root}/${simulator.build}"/>
     <property name="badengine.build.basedir"  value="${badengine.root}/${badengine.build}"/>
     <property name="goodengine.build.basedir" value="${goodengine.root}/${goodengine.build}"/>
+    <property name="display.build.basedir" value="${display.root}/${display.build}"/>
 
     <property name="target"             value="${module.basedir}/target"/>
     <property name="build"              value="${target}/build"/>
