@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
-    <info organisation="org.supply.simulator" module="badengine" revision="0.2" status="integration" publication="20140714224333"/>
+    <info organisation="org.supply.simulator" module="badengine" revision="0.2" status="integration" publication="20140720231936"/>
 
 
     <configurations defaultconf="default">
@@ -18,12 +18,13 @@
 
 
     <dependencies>
-        <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0">
-            <conf name="default" mapped="default"/>
-            <conf name="runtime" mapped="runtime"/>
+        <dependency org="junit" name="junit" rev="4.11">
+            <conf name="test" mapped="default"/>
         </dependency>
 
-        <dependency org="junit" name="junit" rev="4.11">
+        <dependency org="org.supply.simulator" name="data" rev="0.2">
+            <conf name="default" mapped="default"/>
+            <conf name="runtime" mapped="runtime"/>
             <conf name="test" mapped="default"/>
         </dependency>
     </dependencies>
