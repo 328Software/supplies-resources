@@ -44,6 +44,10 @@
         <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
     </target>
 
+    <target name="clean-ivy-cache" depends="install-ivy" description="--> clean the ivy cache">
+        <ivy:cleancache/>
+    </target>
+
     <target name="clean-repository" description="--> clean the local repository">
         <delete includeemptydirs="true" failonerror="false">
             <fileset dir="${repository}" includes="**/*"/>
@@ -90,7 +94,7 @@
         <build-jar/>
     </target>
 
-    <target name="publish" depends="build-jar" description="--> publish the archive to the local repository">
+    <target name="publish" depends="clean-ivy-cache,build-jar" description="--> publish the archive to the local repository">
         <ivy:publish resolver="local" pubrevision="${revision}" overwrite="true">
             <artifacts pattern="${pub}/[artifact].[ext]"/>
         </ivy:publish>
