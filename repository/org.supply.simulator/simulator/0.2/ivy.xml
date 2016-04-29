@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-    <info organisation="org.supply.simulator" module="simulator" revision="0.2" status="integration" publication="20140714224338"/>
+    <info organisation="org.supply.simulator" module="simulator" revision="0.2" status="integration" publication="20160429134838"/>
 
 
     <configurations defaultconf="default">
@@ -16,7 +16,7 @@
     </configurations>
 
     <publications defaultconf="master">
-        <artifact name="simulator" url="file://E:/workspace/simulatorVersions/trunk/target/pub"/>
+        <artifact name="simulator" url="file://E:/simulatorVersions/trunk/target/pub"/>
     </publications>
 
 
@@ -131,6 +131,18 @@
         <!--<conf name="test" mapped="default"/>-->
         <!--</dependency>-->
         <dependency org="org.supply.simulator" name="data" rev="0.2">
+            <conf name="default" mapped="default"/>
+            <conf name="runtime" mapped="runtime"/>
+            <conf name="test" mapped="default"/>
+        </dependency>
+
+        <!--<dependency org="org.supply.simulator" name="display" rev="0.1">-->
+            <!--<conf name="default" mapped="default"/>-->
+            <!--<conf name="runtime" mapped="runtime"/>-->
+            <!--<conf name="test" mapped="default"/>-->
+        <!--</dependency>-->
+
+        <dependency org="org.supply.simulator" name="badengine" rev="0.2">
             <conf name="default" mapped="default"/>
             <conf name="runtime" mapped="runtime"/>
             <conf name="test" mapped="default"/>

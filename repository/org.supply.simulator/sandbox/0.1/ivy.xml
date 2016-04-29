@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-    <info organisation="org.supply.simulator" module="sandbox" revision="0.1" status="integration" publication="20140601151552"/>
+    <info organisation="org.supply.simulator" module="sandbox" revision="0.1" status="integration" publication="20160429134842"/>
 
 
     <configurations defaultconf="default">
@@ -25,7 +25,16 @@
             <conf name="runtime" mapped="runtime"/>
         </dependency>
 
+        <dependency org="org.supply.simulator" name="simulator" rev="0.2">
+            <conf name="default" mapped="default"/>
+            <conf name="runtime" mapped="runtime"/>
+        </dependency>
+
         <dependency org="junit" name="junit" rev="4.11">
+            <conf name="test" mapped="default"/>
+        </dependency>
+
+        <dependency org="com.carrotsearch" name="junit-benchmarks" rev="0.7.2">
             <conf name="test" mapped="default"/>
         </dependency>
 
@@ -55,6 +64,12 @@
         </dependency>
 
         <dependency org="org.apache.commons" name="commons-math" rev="2.2">
+            <conf name="default" mapped="default"/>
+            <conf name="runtime" mapped="runtime"/>
+        </dependency>
+
+
+        <dependency org="org.hibernate" name="hibernate-envers" rev="5.1.0.Final">
             <conf name="default" mapped="default"/>
             <conf name="runtime" mapped="runtime"/>
         </dependency>
